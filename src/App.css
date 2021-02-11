@@ -1,9 +1,17 @@
 .App {
-    display: flex;
+    display: flex; 
     flex-wrap: wrap;
     height: 100%;
 }
 
+.home,
+.components {
+  display: flex;
+  height: 90vh;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+}
 
 
 
