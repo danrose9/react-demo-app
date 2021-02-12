@@ -5,8 +5,8 @@ const StyledFooter = styled.div`
   background-color: #254e58;
   width: 100vw;
   height: 30px;
-  position: fixed;
-  width: 100%;
+  // position: fixed;
+
   padding-bottom: 100% auto;
   bottom: 0;
   left: 0;
