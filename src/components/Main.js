@@ -7,6 +7,8 @@ import { Route, Switch } from 'react-router-dom';
 
 const StyledMain = styled.div`
   width: 100vw;
+  display: flex;
+  height: 90vh;
 `;
 
 export default function Main() {

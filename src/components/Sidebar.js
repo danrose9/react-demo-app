@@ -8,7 +8,6 @@ const StyledSidebar = styled.div`
   background-color: #4f4a41;
   width: 200px;
   display: flex;
-  height: 100vh;
   border: 3px solid blue;
   top: 200px;
 `;
