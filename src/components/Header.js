@@ -4,7 +4,7 @@ import styled from 'styled-components';
 const StyledHeader = styled.div`
   background-color: #88bdbc;
   width: 100vw;
-
+  position: sticky;
   overflow: hidden;
   top: 0;
   left: 0;
