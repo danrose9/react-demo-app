@@ -8,7 +8,12 @@ import { Route, Switch } from 'react-router-dom';
 const StyledMain = styled.div`
   width: 100vw;
   display: flex;
-  flex-direction: row;
+  overflow: hidden;
+  height: 100vh;
+  position: relative;
+  width: 100%;
+  backface-visibility: hidden;
+  will-change: overflow;
 `;
 
 export default function Main() {

@@ -6,10 +6,11 @@ import './Sidebar.css';
 
 const StyledSidebar = styled.div`
   background-color: #4f4a41;
-  width: 200px;
-  display: flex;
-  // top: 200px;
-  // position: fixed;
+  overflow: auto;
+  height: auto;
+  padding: 0.5rem;
+  -webkit-overflow-scrolling: touch;
+  -ms-overflow-style: none;
 `;
 
 const StyledMenuItem = styled.ul`

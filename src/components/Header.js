@@ -4,11 +4,15 @@ import styled from 'styled-components';
 const StyledHeader = styled.div`
   background-color: #88bdbc;
   width: 100vw;
-  position: sticky;
   overflow: hidden;
   top: 0;
   left: 0;
   height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: 10;
 `;
 
 export default function Header() {
