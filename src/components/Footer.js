@@ -6,7 +6,6 @@ const StyledFooter = styled.div`
   width: 100vw;
   height: 30px;
   position: fixed;
-
   padding-bottom: 100% auto;
   bottom: 0;
   left: 0;

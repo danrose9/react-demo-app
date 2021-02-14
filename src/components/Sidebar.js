@@ -8,7 +8,8 @@ const StyledSidebar = styled.div`
   background-color: #4f4a41;
   width: 200px;
   display: flex;
-  top: 200px;
+  // top: 200px;
+  // position: fixed;
 `;
 
 const StyledMenuItem = styled.ul`
