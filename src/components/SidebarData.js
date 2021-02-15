@@ -1,5 +1,3 @@
-import React from 'react';
-
 export const SidebarData = [
   {
     title: 'Home',
@@ -11,6 +9,12 @@ export const SidebarData = [
   {
     title: 'Components',
     path: '/components',
+    // icon: <IoIcons.IoIosPaper />,
+    cName: 'nav-text',
+  },
+  {
+    title: 'APIs',
+    path: '/apis',
     // icon: <IoIcons.IoIosPaper />,
     cName: 'nav-text',
   },

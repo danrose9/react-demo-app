@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import Routes from './Routes';
 
 const StyledPage = styled.div`
   width: 100vw;
@@ -13,38 +14,7 @@ const StyledPage = styled.div`
 export default function Page() {
   return (
     <StyledPage>
-      <p>Hello World!</p>
-      <p>Hello World!</p>
-      <p>Hello World!</p>
-      <p>Hello World!</p>
-      <p>Hello World!</p>
-      <p>Hello World!</p>
-      <p>Hello World!</p>
-      <p>Hello World!</p>
-      <p>Hello World!</p>
-      <p>Hello World!</p>
-      <p>Hello World!</p>
-      <p>Hello World!</p>
-      <p>Hello World!</p>
-      <p>Hello World!</p>
-      <p>Hello World!</p>
-      <p>Hello World!</p>
-      <p>Hello World!</p>
-      <p>Hello World!</p>
-      <p>Hello World!</p>
-      <p>Hello World!</p>
-      <p>Hello World!</p>
-      <p>Hello World!</p>
-      <p>Hello World!</p>
-      <p>Hello World!</p>
-      <p>Hello World!</p>
-      <p>Hello World!</p>
-      <p>Hello World!</p>
-      <p>Hello World!</p>
-      <p>Hello World!</p>
-      <p>Hello World!</p>
-      <p>Hello World!</p>
-      <p>Hello World!</p>
+      <Routes />
     </StyledPage>
   );
 }

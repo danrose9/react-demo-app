@@ -11,6 +11,7 @@ const StyledSidebar = styled.div`
   padding: 0.5rem;
   -webkit-overflow-scrolling: touch;
   -ms-overflow-style: none;
+  width: 200px;
 `;
 
 const StyledMenuItem = styled.ul`
@@ -21,18 +22,22 @@ const StyledSpan = styled.span`
   margin-left: 0px;
 `;
 
+const StyledList = styled.li`
+  padding: 8px 0px;
+`;
+
 export default function Sidebar() {
   return (
     <StyledSidebar>
       <StyledMenuItem>
         {SidebarData.map((item, index) => {
           return (
-            <li key={index} className={item.cName}>
+            <StyledList key={index} className={item.cName}>
               <Link to={item.path}>
                 {/* {item.icon} */}
                 <StyledSpan>{item.title}</StyledSpan>
               </Link>
-            </li>
+            </StyledList>
           );
         })}
       </StyledMenuItem>
