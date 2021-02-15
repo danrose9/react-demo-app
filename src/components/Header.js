@@ -10,15 +10,20 @@ const StyledHeader = styled.div`
   height: 80px;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   position: relative;
   z-index: 10;
+`;
+
+const StyledTitle = styled.h1`
+  width: 500px;
+  justify-content: center;
 `;
 
 export default function Header() {
   return (
     <StyledHeader>
-      <h1>Header</h1>
+      <StyledTitle>React Demo App</StyledTitle>
     </StyledHeader>
   );
 }
