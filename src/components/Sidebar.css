@@ -6,7 +6,13 @@
     justify-content: flex-start;
     align-items: center;
   }
-  
+  .nav-menu active {
+    width: 350px;
+  }
+
+  .nav-menu closed {
+    width: 50px;
+  }
 
   .nav-text {
     display: flex;

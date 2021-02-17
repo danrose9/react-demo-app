@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import styled from 'styled-components';
+import styled, { css, keyframes } from 'styled-components';
 import { SidebarData } from './SidebarData';
 import './Sidebar.css';
 import { IconContext } from 'react-icons';
@@ -12,7 +12,7 @@ const StyledSidebar = styled.div`
   padding: 0.5rem;
   -webkit-overflow-scrolling: touch;
   -ms-overflow-style: none;
-  width: 250px;
+  width: ${(prop) => (prop.active ? '250px' : '50px')};
 `;
 
 const StyledMenuItem = styled.ul`
@@ -27,9 +27,15 @@ const StyledSpan = styled.span`
 const StyledList = styled.li``;
 
 export default function Sidebar() {
+  const [sidebar, setSidebar] = useState(true);
+  const showSidebar = () => {
+    setSidebar(!sidebar);
+    console.log('Clicked sidebar');
+  };
+
   return (
     <IconContext.Provider value={{ color: '#fff' }}>
-      <StyledSidebar>
+      <StyledSidebar onClick={showSidebar} active={sidebar}>
         <StyledMenuItem>
           {SidebarData.map((item, index) => {
             return (
