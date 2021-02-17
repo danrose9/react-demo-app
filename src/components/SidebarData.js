@@ -1,21 +1,24 @@
+import * as AiIcons from 'react-icons/ai';
+import * as FaIcons from 'react-icons/fa';
+
 export const SidebarData = [
   {
     title: 'Home',
     path: '/',
-    // icon: <AiIcons.AiFillHome />,
+    icon: <AiIcons.AiOutlineHome />,
     cName: 'nav-text',
     tooltip: 'Home',
   },
   {
     title: 'Components',
     path: '/components',
-    // icon: <IoIcons.IoIosPaper />,
+    icon: <FaIcons.FaRegObjectGroup />,
     cName: 'nav-text',
   },
   {
     title: 'APIs',
     path: '/apis',
-    // icon: <IoIcons.IoIosPaper />,
+    icon: <FaIcons.FaRegChartBar />,
     cName: 'nav-text',
   },
 ];

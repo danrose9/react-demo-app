@@ -1,12 +1,6 @@
 import React from 'react';
+import Content from '../Content/content';
 
 export default function Components() {
-  return (
-    <div>
-      <h1>
-        BB UI Libraries UI Libraries UI Libraries UI Libraries UI Libraries UI
-        Libraries UI Libraries UI Libraries
-      </h1>
-    </div>
-  );
+  return <Content />;
 }
