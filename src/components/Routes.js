@@ -4,13 +4,13 @@ import React from 'react';
 // Components
 import Home from '../pages/Home';
 import Components from '../pages/Components';
-import Apis from '../pages/Apis';
+import Reports from '../pages/Reports';
 
 const routes = () => (
   <Switch>
     <Route path="/" exact component={Home} />
     <Route path="/components" component={Components} />
-    <Route path="/apis" component={Apis} />
+    <Route path="/reports" component={Reports} />
   </Switch>
 );
 

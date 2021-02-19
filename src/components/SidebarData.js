@@ -1,5 +1,6 @@
 import * as AiIcons from 'react-icons/ai';
 import * as FaIcons from 'react-icons/fa';
+import * as VscIcons from 'react-icons/vsc';
 
 export const SidebarData = [
   {
@@ -16,9 +17,15 @@ export const SidebarData = [
     cName: 'nav-text',
   },
   {
-    title: 'APIs',
-    path: '/apis',
+    title: 'Reports',
+    path: '/reports',
     icon: <FaIcons.FaRegChartBar />,
+    cName: 'nav-text',
+  },
+  {
+    title: 'Settings',
+    path: '/settings',
+    icon: <VscIcons.VscSettingsGear />,
     cName: 'nav-text',
   },
 ];

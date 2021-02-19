@@ -12,7 +12,13 @@ const StyledSidebar = styled.div`
   padding: 0.5rem;
   -webkit-overflow-scrolling: touch;
   -ms-overflow-style: none;
-  width: ${(prop) => (prop.active ? '250px' : '50px')};
+  width: 50px;
+  // width: ${(prop) => (prop.active ? '250px' : '50px')};
+  ${({ active }) =>
+    active &&
+    `
+    width: 250px;
+  `}
 `;
 
 const StyledMenuItem = styled.ul`
@@ -24,9 +30,11 @@ const StyledSpan = styled.span`
   margin-left: 20px;
 `;
 
-const StyledList = styled.li``;
+const StyledList = styled.li`
+  cursor: pointer;
+`;
 
-export default function Sidebar() {
+const Sidebar = () => {
   const [sidebar, setSidebar] = useState(true);
   const showSidebar = () => {
     setSidebar(!sidebar);
@@ -51,4 +59,6 @@ export default function Sidebar() {
       </StyledSidebar>
     </IconContext.Provider>
   );
-}
+};
+
+export default Sidebar;

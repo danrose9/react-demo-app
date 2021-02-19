@@ -1,18 +1,4 @@
-/* top nav bar */
-.navbar {
-    background-color: #112d32;
-    height: 80px;
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-  }
-  .nav-menu active {
-    width: 350px;
-  }
 
-  .nav-menu closed {
-    width: 50px;
-  }
 
   .nav-text {
     display: flex;
@@ -39,6 +25,7 @@
   }
   .nav-text svg {
     font-size: 24px;
+    
   }
   
   .nav-text a:hover {
