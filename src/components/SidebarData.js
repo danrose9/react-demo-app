@@ -8,24 +8,29 @@ export const SidebarData = [
     path: '/',
     icon: <AiIcons.AiOutlineHome />,
     cName: 'nav-text',
-    tooltip: 'Home',
+    active: true,
   },
   {
     title: 'Components',
     path: '/components',
     icon: <FaIcons.FaRegObjectGroup />,
     cName: 'nav-text',
+    active: true,
   },
   {
     title: 'Reports',
     path: '/reports',
     icon: <FaIcons.FaRegChartBar />,
     cName: 'nav-text',
+    active: true,
   },
   {
     title: 'Settings',
     path: '/settings',
     icon: <VscIcons.VscSettingsGear />,
     cName: 'nav-text',
+    active: false,
   },
 ];
+
+export default SidebarData;

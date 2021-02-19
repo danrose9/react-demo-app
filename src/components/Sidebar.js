@@ -12,12 +12,12 @@ const StyledSidebar = styled.div`
   padding: 0.5rem;
   -webkit-overflow-scrolling: touch;
   -ms-overflow-style: none;
-  width: 50px;
+  width: 250px;
   // width: ${(prop) => (prop.active ? '250px' : '50px')};
-  ${({ active }) =>
-    active &&
+  ${({ inactive }) =>
+    inactive &&
     `
-    width: 250px;
+    width: 50px;
   `}
 `;
 
@@ -43,7 +43,8 @@ const Sidebar = () => {
 
   return (
     <IconContext.Provider value={{ color: '#fff' }}>
-      <StyledSidebar onClick={showSidebar} active={sidebar}>
+      {/* <StyledSidebar onClick={showSidebar} inactive={sidebar}> */}
+      <StyledSidebar>
         <StyledMenuItem>
           {SidebarData.map((item, index) => {
             return (
