@@ -1,6 +1,6 @@
 import './App.css';
 import Header from './components/Header';
-import Page from './components/Page';
+import Routes from './components/Routes';
 import Sidebar from './components/Sidebar';
 import Footer from './components/Footer';
 
@@ -10,7 +10,7 @@ function App() {
       <Header />
       <div class="container">
         <Sidebar />
-        <Page />
+        <Routes />
       </div>
       <Footer />
     </>

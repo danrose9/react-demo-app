@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import styled, { css, keyframes } from 'styled-components';
+import styled from 'styled-components';
 import { SidebarData } from './SidebarData';
 import './Sidebar.css';
 import { IconContext } from 'react-icons';
@@ -12,13 +12,8 @@ const StyledSidebar = styled.div`
   padding: 0.5rem;
   -webkit-overflow-scrolling: touch;
   -ms-overflow-style: none;
-  width: 250px;
-  // width: ${(prop) => (prop.active ? '250px' : '50px')};
-  ${({ inactive }) =>
-    inactive &&
-    `
-    width: 50px;
-  `}
+  // width: 250px;
+  width: ${(prop) => (prop.active ? '250px' : '50px')};
 `;
 
 const StyledMenuItem = styled.ul`
@@ -34,16 +29,15 @@ const StyledList = styled.li`
   cursor: pointer;
 `;
 
-const Sidebar = () => {
-  const [sidebar, setSidebar] = useState(true);
+const Sidebar = (props) => {
+  const [sidebar, setSidebar] = useState(false);
   const showSidebar = () => {
     setSidebar(!sidebar);
-    console.log('Clicked sidebar');
+    console.log(sidebar);
   };
 
   return (
     <IconContext.Provider value={{ color: '#fff' }}>
-      {/* <StyledSidebar onClick={showSidebar} inactive={sidebar}> */}
       <StyledSidebar>
         <StyledMenuItem>
           {SidebarData.map((item, index) => {
@@ -57,6 +51,7 @@ const Sidebar = () => {
             );
           })}
         </StyledMenuItem>
+        <button onClick={showSidebar}>BUTTON</button>
       </StyledSidebar>
     </IconContext.Provider>
   );
