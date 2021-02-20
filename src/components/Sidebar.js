@@ -12,7 +12,12 @@ const StyledSidebar = styled.div`
   padding: 0.5rem;
   -webkit-overflow-scrolling: touch;
   -ms-overflow-style: none;
-  // width: ${(prop) => (prop.active ? '250px' : '50px')};
+  width: 50px;
+`;
+
+const ToggleButton = styled.button`
+  position: absolute;
+  bottom: 150px;
 `;
 
 const StyledMenuItem = styled.ul`
@@ -33,7 +38,6 @@ const Sidebar = () => {
 
   const showSidebar = () => {
     setSidebar(!sidebar);
-    console.log(sidebar);
   };
 
   return (
@@ -51,7 +55,7 @@ const Sidebar = () => {
             );
           })}
         </StyledMenuItem>
-        <button onClick={showSidebar}>BUTTON</button>
+        <ToggleButton onClick={showSidebar}>BUTTON</ToggleButton>
       </StyledSidebar>
     </IconContext.Provider>
   );

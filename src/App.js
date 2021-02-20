@@ -1,17 +1,27 @@
-import './App.css';
+import styled from 'styled-components';
 import Header from './components/Header';
 import Routes from './components/Routes';
 import Sidebar from './components/Sidebar';
 import Footer from './components/Footer';
 
+const Container = styled.div`
+  width: 100vw;
+  display: flex;
+  overflow: hidden;
+  height: 100vh;
+  position: relative;
+  backface-visibility: hidden;
+  will-change: overflow;
+`;
+
 function App() {
   return (
     <>
       <Header />
-      <div class="container">
+      <Container>
         <Sidebar />
         <Routes />
-      </div>
+      </Container>
       <Footer />
     </>
   );

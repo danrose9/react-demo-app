@@ -17,6 +17,7 @@ const StyledPage = styled.div`
   -webkit-overflow-scrolling: touch;
   -ms-overflow-style: none;
 `;
+
 export default function Routes() {
   return (
     <StyledPage>
