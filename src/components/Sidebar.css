@@ -2,12 +2,14 @@
 .sidebar.active {
   width: 250px;
 }
+
+
   
   .nav-text {
     display: flex;
     justify-content: flex-start;
     align-items: center;
-    padding: 8px 0px 8px 8px;
+    padding: 8px;
     list-style: none;
     height: 50px;
   }
@@ -25,9 +27,7 @@
     border-radius: 5px;
 
   }
-
- 
-
+  
   .nav-text svg {
     font-size: 24px;
     

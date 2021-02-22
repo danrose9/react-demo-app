@@ -32,7 +32,14 @@ export const StyledList = styled.li`
 //   height: 50px;
 // `;
 
-export const ToggleButton = styled.button`
+export const ToggleButton = styled.a`
   position: absolute;
   bottom: 0;
+  right: 0;
+  // background-color: ${(props) => (props.iconStyle ? `white` : `black`)};
+  background-color: #4f4a41;
+  padding: 0 5px;
+  border: 0;
+  font-size: 2.5em;
+  cursor: pointer;
 `;

@@ -10,6 +10,7 @@ import {
   StyledSpan,
   StyledList,
 } from '../styles/StyledSidebar';
+import { VscChevronLeft, VscChevronRight } from 'react-icons/vsc';
 
 const Sidebar = () => {
   const [sidebar, setSidebar] = useState(true);
@@ -33,7 +34,9 @@ const Sidebar = () => {
             );
           })}
         </StyledMenuItem>
-        <ToggleButton onClick={showSidebar}>BUTTON</ToggleButton>
+        <ToggleButton onClick={showSidebar}>
+          {sidebar ? <VscChevronLeft /> : <VscChevronRight />}
+        </ToggleButton>
       </StyledSidebar>
     </IconContext.Provider>
   );
