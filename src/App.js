@@ -8,8 +8,9 @@ const Container = styled.div`
   width: 100vw;
   display: flex;
   overflow: hidden;
-  height: 100vh;
-  position: relative;
+  position: absolute;
+  bottom: 30px;
+  top: 80px;
   backface-visibility: hidden;
   will-change: overflow;
 `;

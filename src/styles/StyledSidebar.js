@@ -2,12 +2,12 @@ import styled from 'styled-components';
 
 export const StyledSidebar = styled.div`
   background-color: #4f4a41;
-  overflow: auto;
-  height: auto;
+  overflow: hidden;
   padding: 0.5rem;
   -webkit-overflow-scrolling: touch;
   -ms-overflow-style: none;
   width: 50px;
+  position: relative;
 `;
 
 export const StyledSpan = styled.span`
@@ -34,5 +34,5 @@ export const StyledList = styled.li`
 
 export const ToggleButton = styled.button`
   position: absolute;
-  bottom: 150px;
+  bottom: 0;
 `;
