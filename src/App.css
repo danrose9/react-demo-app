@@ -1,9 +1,0 @@
-.container {
-    width: 100vw;
-    display: flex;
-    overflow: hidden;
-    height: 100vh;
-    position: relative;
-    backface-visibility: hidden;
-    will-change: overflow;
-}
