@@ -2,6 +2,13 @@ import styled, { css } from 'styled-components';
 
 const inactiveStyles = `
   width: 50px;
+  & span {
+    display: none;
+  }
+  & li {
+    padding: 0;
+  }
+
 `;
 
 export const StyledSidebar = styled.div`
