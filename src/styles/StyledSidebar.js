@@ -6,8 +6,8 @@ export const StyledSidebar = styled.div`
   padding: 0.5rem;
   -webkit-overflow-scrolling: touch;
   -ms-overflow-style: none;
-  width: 50px;
   position: relative;
+  width: ${(props) => (props.iconStyle ? `250px` : `50px`)};
 `;
 
 export const StyledSpan = styled.span`

@@ -1,7 +1,7 @@
 
-.sidebar.active {
+/* .sidebar.active {
   width: 250px;
-}
+} */
 
 
   
@@ -27,7 +27,7 @@
     border-radius: 5px;
 
   }
-  
+
   .nav-text svg {
     font-size: 24px;
     
@@ -37,9 +37,9 @@
     background-color: #88bdbc;
   }
   
-  .nav-menu-items {
+  /* .nav-menu-items {
     width: 100%;
-  }
+  } */
  
   
   

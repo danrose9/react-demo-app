@@ -21,7 +21,7 @@ const Sidebar = () => {
 
   return (
     <IconContext.Provider value={{ color: '#fff' }}>
-      <StyledSidebar className={sidebar ? 'sidebar active' : 'sidebar'}>
+      <StyledSidebar iconStyle={sidebar}>
         <StyledMenuItem>
           {SidebarData.map((item, index) => {
             return (
