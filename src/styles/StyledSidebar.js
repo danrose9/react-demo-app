@@ -1,4 +1,15 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
+
+const inactiveStyles = `
+  width: 50px;
+  & span {
+    display: none;
+  }
+  & li {
+    padding: 0;
+  }
+
+`;
 
 export const StyledSidebar = styled.div`
   background-color: #4f4a41;
@@ -6,8 +17,18 @@ export const StyledSidebar = styled.div`
   padding: 0.5rem;
   -webkit-overflow-scrolling: touch;
   -ms-overflow-style: none;
-  width: 50px;
   position: relative;
+  width: 250px;
+  // width: ${(props) => (props.iconStyle ? `250px` : `50px`)};
+  &:iconstyle {
+    ${inactiveStyles}
+  }
+
+  ${(props) =>
+    props.iconStyle &&
+    css`
+      ${inactiveStyles}
+    `}
 `;
 
 export const StyledSpan = styled.span`
@@ -36,7 +57,6 @@ export const ToggleButton = styled.a`
   position: absolute;
   bottom: 0;
   right: 0;
-  // background-color: ${(props) => (props.iconStyle ? `white` : `black`)};
   background-color: #4f4a41;
   padding: 0 5px;
   border: 0;

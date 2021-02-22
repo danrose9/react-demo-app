@@ -13,7 +13,7 @@ import {
 import { VscChevronLeft, VscChevronRight } from 'react-icons/vsc';
 
 const Sidebar = () => {
-  const [sidebar, setSidebar] = useState(true);
+  const [sidebar, setSidebar] = useState(false);
 
   const showSidebar = () => {
     setSidebar(!sidebar);
@@ -21,7 +21,7 @@ const Sidebar = () => {
 
   return (
     <IconContext.Provider value={{ color: '#fff' }}>
-      <StyledSidebar className={sidebar ? 'sidebar active' : 'sidebar'}>
+      <StyledSidebar iconStyle={sidebar}>
         <StyledMenuItem>
           {SidebarData.map((item, index) => {
             return (
@@ -35,7 +35,7 @@ const Sidebar = () => {
           })}
         </StyledMenuItem>
         <ToggleButton onClick={showSidebar}>
-          {sidebar ? <VscChevronLeft /> : <VscChevronRight />}
+          {sidebar ? <VscChevronRight /> : <VscChevronLeft />}
         </ToggleButton>
       </StyledSidebar>
     </IconContext.Provider>
