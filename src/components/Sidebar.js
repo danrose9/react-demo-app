@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { SidebarData } from './SidebarData';
-import './Sidebar.css';
+import { SidebarItems } from './SidebarItems';
 import { IconContext } from 'react-icons';
 import {
   StyledSidebar,
@@ -12,7 +11,7 @@ import {
 } from '../styles/StyledSidebar';
 import { VscChevronLeft, VscChevronRight } from 'react-icons/vsc';
 
-const Sidebar = () => {
+const Sidebar = (props) => {
   const [sidebar, setSidebar] = useState(false);
 
   const showSidebar = () => {
@@ -23,7 +22,7 @@ const Sidebar = () => {
     <IconContext.Provider value={{ color: '#fff' }}>
       <StyledSidebar iconStyle={sidebar}>
         <StyledMenuItem>
-          {SidebarData.map((item, index) => {
+          {SidebarItems.filter((item) => item.active).map((item, index) => {
             return (
               <StyledList key={index} className={item.cName}>
                 <Link to={item.path}>

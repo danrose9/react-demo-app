@@ -2,7 +2,7 @@ import * as AiIcons from 'react-icons/ai';
 import * as FaIcons from 'react-icons/fa';
 import * as VscIcons from 'react-icons/vsc';
 
-export const SidebarData = [
+export const SidebarItems = [
   {
     title: 'Home',
     path: '/',
@@ -33,8 +33,8 @@ export const SidebarData = [
     component: 'Settings',
     icon: <VscIcons.VscSettingsGear />,
     cName: 'nav-text',
-    active: false,
+    active: true,
   },
 ];
 
-export default SidebarData;
+export default SidebarItems;
