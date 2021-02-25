@@ -18,7 +18,7 @@ const StyledPage = styled.div`
   -ms-overflow-style: none;
 `;
 
-export default function Routes() {
+const Routes = () => {
   return (
     <StyledPage>
       <Switch>
@@ -28,8 +28,6 @@ export default function Routes() {
       </Switch>
     </StyledPage>
   );
-}
+};
 
-// {SidebarData.map(({ path, Component }, key) => (
-//   <Route exact path={path} component={Component} key={key} />
-// ))}
+export default Routes;
