@@ -1,4 +1,4 @@
-import styled, { css } from 'styled-components';
+import styled, { css, withTheme } from 'styled-components';
 
 const inactiveStyles = `
   width: 50px;
@@ -37,22 +37,38 @@ export const StyledSpan = styled.span`
 
 export const StyledMenuItem = styled.ul`
   width: 100%;
-  padding: 1px;
-`;
-
-export const StyledList = styled.li`
-  cursor: pointer;
   padding: 0;
 `;
 
-// export const StyledNavItem = styled.a`
-//   display: flex;
-//   justify-content: flex-start;
-//   align-items: center;
-//   padding: 8px 0px 8px 8px;
-//   list-style: none;
-//   height: 50px;
-// `;
+export const StyledList = styled.li`
+  &.nav-text {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 0;
+    list-style: none;
+    height: 50px;
+
+    & a {
+      text-decoration: none;
+      color: #f5f5f5;
+      font-size: 20px;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      padding: 5px;
+      &:hover {
+        background-color: #716e67;
+        width: 100%;
+      }
+    }
+    & svg {
+      font-size: 24px;
+    }
+  }
+  cursor: pointer;
+`;
 
 export const ToggleButton = styled.a`
   position: absolute;

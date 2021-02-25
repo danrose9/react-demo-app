@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { SidebarItems } from './SidebarItems';
-import './Sidebar.css';
 import { IconContext } from 'react-icons';
 import {
   StyledSidebar,
@@ -12,7 +11,7 @@ import {
 } from '../styles/StyledSidebar';
 import { VscChevronLeft, VscChevronRight } from 'react-icons/vsc';
 
-const Sidebar = () => {
+const Sidebar = (props) => {
   const [sidebar, setSidebar] = useState(false);
 
   const showSidebar = () => {
