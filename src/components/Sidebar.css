@@ -17,7 +17,6 @@
     display: flex;
     align-items: center;
     padding: 5px;
-    border-radius: 5px;
 
   }
 
@@ -27,7 +26,8 @@
   }
   
   .nav-text a:hover {
-    background-color: #88bdbc;
+    background-color: #716E67;
+    width: 100%;
   }
   
 

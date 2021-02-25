@@ -42,6 +42,7 @@ export const StyledMenuItem = styled.ul`
 
 export const StyledList = styled.li`
   cursor: pointer;
+  padding: 0;
 `;
 
 // export const StyledNavItem = styled.a`
