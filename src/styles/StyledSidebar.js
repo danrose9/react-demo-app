@@ -1,4 +1,4 @@
-import styled, { css, withTheme } from 'styled-components';
+import styled, { css } from 'styled-components';
 
 const inactiveStyles = `
   width: 50px;

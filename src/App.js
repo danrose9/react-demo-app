@@ -1,8 +1,10 @@
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import Header from './components/Header';
 import Routes from './components/Routes';
 import Sidebar from './components/Sidebar';
 import Footer from './components/Footer';
+import Login from './components/Login';
 
 const Container = styled.div`
   width: 100vw;
@@ -16,6 +18,11 @@ const Container = styled.div`
 `;
 
 function App() {
+  const [token, setToken] = useState();
+
+  if (!token) {
+    return <Login setToken={setToken} />;
+  }
   return (
     <>
       <Header />
