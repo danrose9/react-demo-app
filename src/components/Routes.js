@@ -7,6 +7,7 @@ import { Switch, Route } from 'react-router-dom';
 import Home from '../pages/Home';
 import Components from '../pages/Components';
 import Reports from '../pages/Reports';
+import Settings from '../pages/Settings';
 
 const StyledPage = styled.div`
   width: 100vw;
@@ -25,6 +26,7 @@ const Routes = () => {
         <Route path="/" exact component={Home} />
         <Route path="/components" component={Components} />
         <Route path="/reports" component={Reports} />
+        <Route path="/settings" component={Settings} />
       </Switch>
     </StyledPage>
   );

@@ -1,4 +1,4 @@
-import styled, { css, withTheme } from 'styled-components';
+import styled, { css } from 'styled-components';
 
 const inactiveStyles = `
   width: 50px;
@@ -66,6 +66,15 @@ export const StyledList = styled.li`
     & svg {
       font-size: 24px;
     }
+
+    // &.base {
+    //   position: absolute;
+    //   bottom: 4px;
+    //   &:hover {
+    //     background-color: #716e67;
+    //     width: 75%;
+    //   }
+    // }
   }
   cursor: pointer;
 `;
@@ -76,7 +85,9 @@ export const ToggleButton = styled.a`
   right: 0;
   background-color: #4f4a41;
   padding: 0 5px;
-  border: 0;
   font-size: 2.5em;
   cursor: pointer;
+  &:hover {
+    background-color: #716e67;
+  }
 `;

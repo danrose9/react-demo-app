@@ -18,6 +18,24 @@ export const SidebarItems = [
     icon: <FaIcons.FaRegObjectGroup />,
     cName: 'nav-text',
     active: true,
+    children: [
+      {
+        title: 'Page1',
+        path: '/page1',
+        component: 'Page1',
+        icon: <AiIcons.AiOutlineHome />,
+        cName: 'nav-text',
+        active: true,
+      },
+      {
+        title: 'Page2',
+        path: '/page2',
+        component: 'Page2',
+        icon: <AiIcons.AiOutlineHome />,
+        cName: 'nav-text',
+        active: true,
+      },
+    ],
   },
   {
     title: 'Reports',
@@ -32,7 +50,7 @@ export const SidebarItems = [
     path: '/settings',
     component: 'Settings',
     icon: <VscIcons.VscSettingsGear />,
-    cName: 'nav-text',
+    cName: 'nav-text base',
     active: true,
   },
 ];

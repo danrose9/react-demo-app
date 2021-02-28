@@ -32,10 +32,10 @@ const Sidebar = (props) => {
               </StyledList>
             );
           })}
+          <ToggleButton onClick={showSidebar}>
+            {sidebar ? <VscChevronRight /> : <VscChevronLeft />}
+          </ToggleButton>
         </StyledMenuItem>
-        <ToggleButton onClick={showSidebar}>
-          {sidebar ? <VscChevronRight /> : <VscChevronLeft />}
-        </ToggleButton>
       </StyledSidebar>
     </IconContext.Provider>
   );
