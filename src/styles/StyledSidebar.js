@@ -67,14 +67,14 @@ export const StyledList = styled.li`
       font-size: 24px;
     }
 
-    &.base {
-      position: absolute;
-      bottom: 4px;
-      &:hover {
-        background-color: #716e67;
-        width: 75%;
-      }
-    }
+    // &.base {
+    //   position: absolute;
+    //   bottom: 4px;
+    //   &:hover {
+    //     background-color: #716e67;
+    //     width: 75%;
+    //   }
+    // }
   }
   cursor: pointer;
 `;
