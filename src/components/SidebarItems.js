@@ -32,7 +32,7 @@ export const SidebarItems = [
     path: '/settings',
     component: 'Settings',
     icon: <VscIcons.VscSettingsGear />,
-    cName: 'nav-text',
+    cName: 'nav-text base',
     active: true,
   },
 ];
