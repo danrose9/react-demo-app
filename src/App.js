@@ -19,11 +19,6 @@ const Container = styled.div`
 `;
 
 function App() {
-  const { token, setToken } = useToken();
-
-  if (!token) {
-    return <Login setToken={setToken} />;
-  }
   return (
     <>
       <Header />
