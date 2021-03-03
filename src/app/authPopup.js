@@ -9,13 +9,9 @@ import { updateUI } from './ui';
 const myMSALObj = new msal.PublicClientApplication(msalConfig);
 
 let username = '';
+let displayName = '';
 
 export function selectAccount() {
-  /**
-   * See here for more info on account retrieval:
-   * https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-common/docs/Accounts.md
-   */
-
   const currentAccounts = myMSALObj.getAllAccounts();
   if (currentAccounts.length === 0) {
     return;
@@ -24,7 +20,9 @@ export function selectAccount() {
     console.warn('Multiple accounts detected.');
   } else if (currentAccounts.length === 1) {
     username = currentAccounts[0].username;
-    console.log(username);
+    displayName = currentAccounts[0].name;
+    localStorage.setItem('username', username);
+    localStorage.setItem('displayName', displayName);
   }
 }
 
@@ -36,7 +34,7 @@ function handleResponse(response) {
 
   if (response !== null) {
     username = response.account.username;
-    console.log(username);
+    console.log('handleResponse : ' + username);
   } else {
     selectAccount();
   }
