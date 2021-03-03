@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import SignInButton from './App/SignInButton';
 
 const StyledHeader = styled.div`
   background-color: #88bdbc;
@@ -24,6 +25,7 @@ export default function Header() {
   return (
     <StyledHeader>
       <StyledTitle>React Demo App</StyledTitle>
+      <SignInButton />
     </StyledHeader>
   );
 }

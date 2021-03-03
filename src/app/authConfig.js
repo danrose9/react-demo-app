@@ -1,9 +1,11 @@
+import * as msal from '@azure/msal-browser';
+
 /**
  * Configuration object to be passed to MSAL instance on creation.
  * For a full list of MSAL.js configuration parameters, visit:
  * https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-browser/docs/configuration.md
  */
-const msalConfig = {
+export const msalConfig = {
   auth: {
     clientId: 'a22d03e7-c3ac-4a15-9617-30c8f8cc014b',
     authority:
@@ -33,6 +35,7 @@ const msalConfig = {
           case msal.LogLevel.Warning:
             console.warn(message);
             return;
+          default:
         }
       },
     },
@@ -45,7 +48,7 @@ const msalConfig = {
  * For more information about OIDC scopes, visit:
  * https://docs.microsoft.com/en-us/azure/active-directory/develop/v2-permissions-and-consent#openid-connect-scopes
  */
-const loginRequest = {
+export const loginRequest = {
   scopes: ['User.Read'],
 };
 
@@ -53,7 +56,7 @@ const loginRequest = {
  * Add here the scopes to request when obtaining an access token for MS Graph API. For more information, see:
  * https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-browser/docs/resources-and-scopes.md
  */
-const tokenRequest = {
+export const tokenRequest = {
   scopes: ['User.Read', 'Mail.Read'],
   forceRefresh: false, // Set this to "true" to skip a cached token and go to the server to get a new token
 };

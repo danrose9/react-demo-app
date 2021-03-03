@@ -4,8 +4,6 @@ import Header from './components/Header';
 import Routes from './components/Routes';
 import Sidebar from './components/Sidebar';
 import Footer from './components/Footer';
-import Login from './components/Login';
-import useToken from './components/App/useToken';
 
 const Container = styled.div`
   width: 100vw;
