@@ -12,6 +12,8 @@ You could say that the type of app built for this demo is very typical of what a
 
 ## Technologies and libraries used
 
-<strong>Routing</strong>  - [react-router-dom](https://www.npmjs.com/package/react-router-dom)
-<strong>Styling</string>  - [styled components](https://styled-components.com/)
-<strong>Azure Authentication</strong> - [Microsoft Authentication Library for Javascript](https://www.npmjs.com/package/msal)
+<ul>
+<li><strong>Routing</strong>  - [react-router-dom](https://www.npmjs.com/package/react-router-dom)
+<li><strong>Styling</string>  - [styled components](https://styled-components.com/)
+<li><strong>Azure Authentication</strong> - [Microsoft Authentication Library for Javascript](https://www.npmjs.com/package/msal)
+</ul>
