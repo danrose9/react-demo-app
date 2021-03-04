@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
+import React, { Fragment, useState } from 'react';
 import styled from 'styled-components';
 import * as auth from '../../app/authPopup';
-import { VscAccount } from 'react-icons/vsc';
+import { VscAccount, VscSmiley } from 'react-icons/vsc';
 import MenuCard from './MenuCard';
 
 const StyledSignIn = styled.div`
@@ -25,13 +25,36 @@ const UserCard = styled(MenuCard)`
   right: 60px;
 `;
 
+const UserDetails = styled.div`
+  display: flex;
+
+  & svg {
+    font-size: 4em;
+    cursor: pointer;
+  }
+
+  & h4 {
+    margin: 5px;
+  }
+  & p {
+    font-size: 14px;
+    margin: 5px;
+  }
+`;
+
 const UserButton = () => {
-  function handleClick(e) {
+  function signIn(e) {
     e.preventDefault();
     auth.signIn();
   }
 
-  // const username = localStorage.getItem('username');
+  function signOut(e) {
+    e.preventDefault();
+    auth.signOut();
+    localStorage.clear();
+  }
+
+  const username = localStorage.getItem('username');
   const displayName = localStorage.getItem('displayName');
 
   const [card, setCard] = useState(false);
@@ -43,12 +66,26 @@ const UserButton = () => {
   return (
     <StyledSignIn>
       <VscAccount
-        onClick={handleClick}
-        onMouseEnter={showCard}
-        onMouseLeave={showCard}
+        onClick={showCard}
+        // onMouseEnter={showCard}
+        // onMouseLeave={showCard}
       />
       {displayName}
-      {card ? <UserCard /> : null}
+      {card ? (
+        <UserCard>
+          <UserDetails>
+            <VscSmiley />
+            <div>
+              <h4>Signed in as {displayName} </h4>
+              <p>{username}</p>
+            </div>
+          </UserDetails>
+          {/* <div>
+            <div onClick={signIn}>Sign In</div>
+            <div onClick={signOut}>Sign Out</div>
+          </div> */}
+        </UserCard>
+      ) : null}
     </StyledSignIn>
   );
 };

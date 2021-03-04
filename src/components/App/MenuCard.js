@@ -5,8 +5,10 @@ export const StyledMenuCard = styled.div`
   z-index: 99;
   position: fixed;
   border-radius: 5px;
-  background-color: lightgray;
+  border: 2px solid black;
+  background-color: white;
   display: flex;
+  color: black;
 `;
 
 const MenuCard = ({ className, children }) => {
