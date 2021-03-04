@@ -8,4 +8,8 @@ The purpose of creating this projects was initially as a object to learn React a
 
 ### Why this type of demo app?
 
-You could say that the type of app built for this demo is very typical of what a lot of businesses tend to build, so I wanted to create something along those lines
+You could say that the type of app built for this demo is very typical of what a lot of businesses tend to build, so I wanted to create something along those lines.
+
+## Technologies and libraries used
+
+
