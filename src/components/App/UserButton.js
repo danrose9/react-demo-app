@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import * as auth from '../../app/authPopup';
 import { VscAccount } from 'react-icons/vsc';
+import MenuCard from './MenuCard';
 
 const StyledSignIn = styled.div`
   padding: 10px;
@@ -17,6 +18,13 @@ const StyledSignIn = styled.div`
   }
 `;
 
+const UserCard = styled(MenuCard)`
+  width: 300px;
+  height: 100px;
+  top: 65px;
+  right: 60px;
+`;
+
 const UserButton = () => {
   function handleClick(e) {
     e.preventDefault();
@@ -26,10 +34,21 @@ const UserButton = () => {
   // const username = localStorage.getItem('username');
   const displayName = localStorage.getItem('displayName');
 
+  const [card, setCard] = useState(false);
+
+  const showCard = () => {
+    setCard(!card);
+  };
+
   return (
     <StyledSignIn>
-      <VscAccount onClick={handleClick} />
+      <VscAccount
+        onClick={handleClick}
+        onMouseEnter={showCard}
+        onMouseLeave={showCard}
+      />
       {displayName}
+      {card ? <UserCard /> : null}
     </StyledSignIn>
   );
 };
