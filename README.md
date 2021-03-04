@@ -12,4 +12,4 @@ You could say that the type of app built for this demo is very typical of what a
 
 ## Technologies and libraries used
 
-<strong>Routing</strong>  - react-router-dom
+<strong>Routing</strong>  - [https://www.npmjs.com/package/react-router-dom](react-router-dom)
