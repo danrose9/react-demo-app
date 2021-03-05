@@ -28,17 +28,24 @@ const UserCard = styled(MenuCard)`
 const UserDetails = styled.div`
   display: flex;
 
+  height: 70%;
+  width: 100%;
   & svg {
     font-size: 4em;
     cursor: pointer;
   }
 
   & h4 {
-    margin: 5px;
+    margin: 5px 0 0 0;
+    font-size: 20px;
   }
   & p {
     font-size: 14px;
     margin: 5px;
+  }
+
+  &.divider {
+    border-top: 1px solid #bbb;
   }
 `;
 
@@ -76,10 +83,12 @@ const UserButton = () => {
           <UserDetails>
             <VscSmiley />
             <div>
-              <h4>Signed in as {displayName} </h4>
-              <p>{username}</p>
+              <h4>{displayName} </h4>
+              <i>{username}</i>
             </div>
+            <div className="divider" />
           </UserDetails>
+
           {/* <div>
             <div onClick={signIn}>Sign In</div>
             <div onClick={signOut}>Sign Out</div>
