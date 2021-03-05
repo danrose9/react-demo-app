@@ -1,8 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
+import UserButton from './App/UserButton';
 
 const StyledHeader = styled.div`
-  background-color: #88bdbc;
+  background-color: #4f4a41;
   width: 100vw;
   overflow: hidden;
   top: 0;
@@ -13,17 +14,22 @@ const StyledHeader = styled.div`
   justify-content: flex-start;
   position: relative;
   z-index: 10;
+  justify-content: space-between;
 `;
 
-const StyledTitle = styled.h1`
+const StyledTitle = styled.a`
   width: 500px;
   justify-content: center;
+  color: #f5f5f5;
+  padding: 20px;
+  font-size: 2.5em;
 `;
 
 export default function Header() {
   return (
     <StyledHeader>
-      <StyledTitle>React Demo App</StyledTitle>
+      <StyledTitle>React Demo Application</StyledTitle>
+      <UserButton />
     </StyledHeader>
   );
 }
