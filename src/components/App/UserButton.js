@@ -23,30 +23,37 @@ const UserCard = styled(MenuCard)`
   height: 100px;
   top: 65px;
   right: 60px;
+  display: flex;
+  flex-direction: column;
+  background-color: #f1fffa;
+  border: 2px solid #93b7be;
 `;
 
 const UserDetails = styled.div`
   display: flex;
-
+  align-self: center;
   height: 70%;
-  width: 100%;
+  width: 90%;
+  border-bottom: 2px solid #93b7be;
   & svg {
     font-size: 4em;
-    cursor: pointer;
   }
+`;
+const Names = styled.div`
+  padding: 6px;
+  width: 100%;
+`;
 
-  & h4 {
-    margin: 5px 0 0 0;
-    font-size: 20px;
-  }
-  & p {
-    font-size: 14px;
-    margin: 5px;
-  }
+const DisplayName = styled.div`
+  font-size: 1.25em;
+  font-weight: bold;
+`;
 
-  &.divider {
-    border-top: 1px solid #bbb;
-  }
+const LowerCard = styled.div`
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  padding: 3px 0 0 0;
 `;
 
 const UserButton = () => {
@@ -82,17 +89,21 @@ const UserButton = () => {
         <UserCard>
           <UserDetails>
             <VscSmiley />
-            <div>
-              <h4>{displayName} </h4>
-              <i>{username}</i>
-            </div>
-            <div className="divider" />
+            <Names>
+              <DisplayName>{displayName}</DisplayName>
+              <div>{username}</div>
+            </Names>
           </UserDetails>
-
-          {/* <div>
+          <LowerCard>
+            <div className="status">Status</div>
+            <div className="signInOut">
+              Sign In
+              {/* <div>
             <div onClick={signIn}>Sign In</div>
             <div onClick={signOut}>Sign Out</div>
           </div> */}
+            </div>
+          </LowerCard>
         </UserCard>
       ) : null}
     </StyledSignIn>
