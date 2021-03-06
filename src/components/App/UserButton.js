@@ -1,4 +1,4 @@
-import React, { Fragment, useState } from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import * as auth from '../../app/authPopup';
 import { VscAccount, VscSmiley } from 'react-icons/vsc';
@@ -25,7 +25,7 @@ const UserCard = styled(MenuCard)`
   right: 60px;
   display: flex;
   flex-direction: column;
-  background-color: #f1fffa;
+  background-color: #f1fffa; // Card color
   border: 2px solid #93b7be;
 `;
 
@@ -55,6 +55,16 @@ const LowerCard = styled.div`
   width: 100%;
   padding: 3px 0 0 0;
 `;
+
+const SignInOut = styled.div`
+  cursor: pointer;
+`;
+
+const is_user_logged_in = () => {
+  // do we have name in storage?
+  // Yes => logged In
+  // No => Show login
+};
 
 const UserButton = () => {
   function signIn(e) {
@@ -96,13 +106,9 @@ const UserButton = () => {
           </UserDetails>
           <LowerCard>
             <div className="status">Status</div>
-            <div className="signInOut">
+            <SignInOut className="signInOut" onClick={signIn}>
               Sign In
-              {/* <div>
-            <div onClick={signIn}>Sign In</div>
-            <div onClick={signOut}>Sign Out</div>
-          </div> */}
-            </div>
+            </SignInOut>
           </LowerCard>
         </UserCard>
       ) : null}

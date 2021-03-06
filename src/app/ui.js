@@ -16,7 +16,5 @@ export function showWelcomeMessage(username) {
 export function updateUI(data, endpoint) {
   console.log('Graph API responded at: ' + new Date().toString());
 
-  if (endpoint === graphConfig.graphMeEndpoint) {
-    console.log(data);
-  }
+  console.log(data);
 }
