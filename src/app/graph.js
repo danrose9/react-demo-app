@@ -9,7 +9,7 @@ export function callMSGraph(endpoint, token, callback) {
     headers: headers,
   };
 
-  console.log('request made to Graph API at: ' + new Date().toString());
+  // console.log('request made to Graph API at: ' + new Date().toString());
 
   fetch(endpoint, options)
     .then((response) => response.json())

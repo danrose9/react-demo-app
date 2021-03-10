@@ -27,7 +27,7 @@ export const msalConfig = {
             console.error(message);
             return;
           case msal.LogLevel.Info:
-            console.info(message);
+            // console.info(message);
             return;
           case msal.LogLevel.Verbose:
             console.debug(message);

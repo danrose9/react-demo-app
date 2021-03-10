@@ -12,9 +12,3 @@ export function showWelcomeMessage(username) {
   signInButton.setAttribute('class', 'btn btn-success');
   signInButton.innerHTML = 'Sign Out';
 }
-
-export function updateUI(data, endpoint) {
-  console.log('Graph API responded at: ' + new Date().toString());
-
-  console.log(data);
-}

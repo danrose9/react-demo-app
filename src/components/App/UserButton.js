@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import * as auth from '../../app/authPopup';
-import { VscAccount, VscSmiley } from 'react-icons/vsc';
-import MenuCard from './MenuCard';
+import { signIn } from '../../app/authPopup';
+import { VscAccount } from 'react-icons/vsc';
+import { UserProvider, UserContext } from './UserProvider';
 
 const StyledSignIn = styled.div`
   padding: 10px;
@@ -19,21 +19,21 @@ const StyledSignIn = styled.div`
 `;
 
 const UserButton = () => {
-  function signIn(e) {
-    e.preventDefault();
-    auth.signIn();
+  const [displayName, setDisplayName] = useState('');
+
+  async function connect() {
+    const response = await signIn();
+
+    setDisplayName(response.account.name);
   }
 
-  function signOut(e) {
-    e.preventDefault();
-    auth.signOut();
-    localStorage.clear();
-  }
-  const displayName = localStorage.getItem('displayName');
+  // const displayName = localStorage.getItem('displayName');
+  // console.log('userDetails : ' + userDetails);
+
   return (
     <StyledSignIn>
       <VscAccount
-        onClick={signIn}
+        onClick={connect}
         // onMouseEnter={showCard}
         // onMouseLeave={showCard}
       />
