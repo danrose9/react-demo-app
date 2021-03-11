@@ -1,8 +1,8 @@
-import React, { Fragment, useState } from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
-import * as auth from '../../app/authPopup';
-import { VscAccount, VscSmiley } from 'react-icons/vsc';
-import MenuCard from './MenuCard';
+import { VscAccount } from 'react-icons/vsc';
+import AzureAuthenticationButton from '../../azure/azure-authentication-component';
+import { AccountInfo } from '@azure/msal-browser';
 
 const StyledSignIn = styled.div`
   padding: 10px;
@@ -18,85 +18,56 @@ const StyledSignIn = styled.div`
   }
 `;
 
-const UserCard = styled(MenuCard)`
-  width: 300px;
-  height: 100px;
-  top: 65px;
-  right: 60px;
-`;
-
-const UserDetails = styled.div`
-  display: flex;
-
-  height: 70%;
-  width: 100%;
-  & svg {
-    font-size: 4em;
-    cursor: pointer;
-  }
-
-  & h4 {
-    margin: 5px 0 0 0;
-    font-size: 20px;
-  }
-  & p {
-    font-size: 14px;
-    margin: 5px;
-  }
-
-  &.divider {
-    border-top: 1px solid #bbb;
-  }
-`;
-
 const UserButton = () => {
-  function signIn(e) {
-    e.preventDefault();
-    auth.signIn();
-  }
+  const [currentUser, setCurrentUser] = useState();
 
-  function signOut(e) {
-    e.preventDefault();
-    auth.signOut();
-    localStorage.clear();
-  }
+  // authentication callback
+  const onAuthenticated = async (userAccountInfo) => {
+    setCurrentUser(userAccountInfo);
+  };
 
-  const username = localStorage.getItem('username');
-  const displayName = localStorage.getItem('displayName');
+  // Render JSON data in readable format
+  const PrettyPrintJson = ({ data }) => {
+    return (
+      <div>
+        <pre>{JSON.stringify(data, null, 2)}</pre>
+      </div>
+    );
+  };
 
-  const [card, setCard] = useState(false);
-
-  const showCard = () => {
-    setCard(!card);
+  // Quick link - user revokes app's permission
+  const ShowPermissionRevokeLinks = () => {
+    return (
+      <div>
+        <div>
+          <a href="https://myapps.microsoft.com" target="_blank" rel="noopener">
+            Revoke AAD permission
+          </a>
+        </div>
+        <div>
+          <a
+            href="https://account.live.com/consent/manage"
+            target="_blank"
+            rel="noopener"
+          >
+            Revoke Consumer permission
+          </a>
+        </div>
+      </div>
+    );
   };
 
   return (
-    <StyledSignIn>
-      <VscAccount
-        onClick={showCard}
-        // onMouseEnter={showCard}
-        // onMouseLeave={showCard}
-      />
-      {displayName}
-      {card ? (
-        <UserCard>
-          <UserDetails>
-            <VscSmiley />
-            <div>
-              <h4>{displayName} </h4>
-              <i>{username}</i>
-            </div>
-            <div className="divider" />
-          </UserDetails>
-
-          {/* <div>
-            <div onClick={signIn}>Sign In</div>
-            <div onClick={signOut}>Sign Out</div>
-          </div> */}
-        </UserCard>
-      ) : null}
+    <StyledSignIn id="Auth">
+      <VscAccount></VscAccount>
+      <AzureAuthenticationButton onAuthenticated={onAuthenticated} />
+      {currentUser && (
+        <div>
+          <PrettyPrintJson data={currentUser} />
+          <ShowPermissionRevokeLinks />
+        </div>
+      )}
     </StyledSignIn>
   );
 };
-
 export default UserButton;
