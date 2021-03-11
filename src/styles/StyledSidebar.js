@@ -12,7 +12,7 @@ const inactiveStyles = `
 `;
 
 export const StyledSidebar = styled.div`
-  background-color: #4f4a41;
+  background-color: #785964;
   overflow: hidden;
   padding: 0.5rem;
   -webkit-overflow-scrolling: touch;
@@ -83,7 +83,7 @@ export const ToggleButton = styled.a`
   position: absolute;
   bottom: 0;
   right: 0;
-  background-color: #4f4a41;
+  background-color: #785964;
   padding: 0 5px;
   font-size: 2.5em;
   cursor: pointer;

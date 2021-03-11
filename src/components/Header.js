@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import UserButton from './App/UserButton';
 
 const StyledHeader = styled.div`
-  background-color: #4f4a41;
+  background-color: #785964;
   width: 100vw;
   overflow: hidden;
   top: 0;

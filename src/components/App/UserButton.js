@@ -4,6 +4,7 @@ import { VscAccount } from 'react-icons/vsc';
 import AzureAuthenticationButton from '../../azure/azure-authentication-component';
 import { AccountInfo } from '@azure/msal-browser';
 
+
 const StyledSignIn = styled.div`
   padding: 10px;
   display: flex;
@@ -19,6 +20,7 @@ const StyledSignIn = styled.div`
 `;
 
 const UserButton = () => {
+
   const [currentUser, setCurrentUser] = useState();
 
   // authentication callback
@@ -55,7 +57,11 @@ const UserButton = () => {
         </div>
       </div>
     );
+
   };
+
+  // const displayName = localStorage.getItem('displayName');
+  // console.log('userDetails : ' + userDetails);
 
   return (
     <StyledSignIn id="Auth">
@@ -67,6 +73,7 @@ const UserButton = () => {
           <ShowPermissionRevokeLinks />
         </div>
       )}
+
     </StyledSignIn>
   );
 };
