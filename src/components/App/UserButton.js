@@ -1,8 +1,9 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
-import { signIn } from '../../app/authPopup';
 import { VscAccount } from 'react-icons/vsc';
-import { UserProvider, UserContext } from './UserProvider';
+import AzureAuthenticationButton from '../../azure/azure-authentication-component';
+import { AccountInfo } from '@azure/msal-browser';
+
 
 const StyledSignIn = styled.div`
   padding: 10px;
@@ -19,27 +20,61 @@ const StyledSignIn = styled.div`
 `;
 
 const UserButton = () => {
-  const [displayName, setDisplayName] = useState();
 
-  const ConnectUser = async () => {
-    const connectionResponse = await signIn();
+  const [currentUser, setCurrentUser] = useState();
 
-    setDisplayName(connectionResponse.account.name);
+  // authentication callback
+  const onAuthenticated = async (userAccountInfo) => {
+    setCurrentUser(userAccountInfo);
+  };
+
+  // Render JSON data in readable format
+  const PrettyPrintJson = ({ data }) => {
+    return (
+      <div>
+        <pre>{JSON.stringify(data, null, 2)}</pre>
+      </div>
+    );
+  };
+
+  // Quick link - user revokes app's permission
+  const ShowPermissionRevokeLinks = () => {
+    return (
+      <div>
+        <div>
+          <a href="https://myapps.microsoft.com" target="_blank" rel="noopener">
+            Revoke AAD permission
+          </a>
+        </div>
+        <div>
+          <a
+            href="https://account.live.com/consent/manage"
+            target="_blank"
+            rel="noopener"
+          >
+            Revoke Consumer permission
+          </a>
+        </div>
+      </div>
+    );
+
   };
 
   // const displayName = localStorage.getItem('displayName');
   // console.log('userDetails : ' + userDetails);
 
   return (
-    <StyledSignIn>
-      <VscAccount
-        onClick={ConnectUser}
-        // onMouseEnter={showCard}
-        // onMouseLeave={showCard}
-      />
-      {displayName}
+    <StyledSignIn id="Auth">
+      <VscAccount></VscAccount>
+      <AzureAuthenticationButton onAuthenticated={onAuthenticated} />
+      {currentUser && (
+        <div>
+          <PrettyPrintJson data={currentUser} />
+          <ShowPermissionRevokeLinks />
+        </div>
+      )}
+
     </StyledSignIn>
   );
 };
-
 export default UserButton;
