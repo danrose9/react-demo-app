@@ -10,6 +10,7 @@ const myMSALObj = new msal.PublicClientApplication(msalConfig);
 function handleResponse(response) {
   if (response !== null) {
     console.log('response received at: ' + new Date().toString());
+    localStorage.setItem('Account', JSON.stringify(response.account));
   } else {
     console.log('no response received');
   }
@@ -18,13 +19,13 @@ function handleResponse(response) {
 }
 
 // Sign in (/authorize)
-export const signIn = () => {
-  return myMSALObj
-    .loginPopup(loginRequest)
-    .then(handleResponse)
-    .catch((error) => {
-      console.error(error);
-    });
+export const signIn = async () => {
+  try {
+    const response = await myMSALObj.loginPopup(loginRequest);
+    return handleResponse(response);
+  } catch (error) {
+    console.error(error);
+  }
 };
 
 // export function signOut() {

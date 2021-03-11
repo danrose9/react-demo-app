@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import { signIn } from '../../app/authPopup';
 import { VscAccount } from 'react-icons/vsc';
@@ -19,13 +19,13 @@ const StyledSignIn = styled.div`
 `;
 
 const UserButton = () => {
-  const [displayName, setDisplayName] = useState('');
+  const [displayName, setDisplayName] = useState();
 
-  async function connect() {
-    const response = await signIn();
+  const ConnectUser = async () => {
+    const connectionResponse = await signIn();
 
-    setDisplayName(response.account.name);
-  }
+    setDisplayName(connectionResponse.account.name);
+  };
 
   // const displayName = localStorage.getItem('displayName');
   // console.log('userDetails : ' + userDetails);
@@ -33,7 +33,7 @@ const UserButton = () => {
   return (
     <StyledSignIn>
       <VscAccount
-        onClick={connect}
+        onClick={ConnectUser}
         // onMouseEnter={showCard}
         // onMouseLeave={showCard}
       />
