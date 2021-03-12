@@ -5,7 +5,7 @@ import { msalConfig, loginRequest } from '../../azure/authConfig';
 import { PageLayout } from '../../azure/ui';
 import { ProfileData, callMsGraph } from '../../azure/graph';
 import styled from 'styled-components';
-import { VscAccount } from 'react-icons/vsc';
+// import { VscAccount } from 'react-icons/vsc';
 
 const StyledSignIn = styled.div`
     padding: 10px;
