@@ -1,0 +1,50 @@
+import React from 'react';
+import { Navbar, Button, DropdownButton } from 'react-bootstrap';
+import { VscAccount } from 'react-icons/vsc';
+
+import {
+  AuthenticatedTemplate,
+  UnauthenticatedTemplate,
+  useMsal,
+} from '@azure/msal-react';
+import { loginRequest } from './authConfig';
+import Dropdown from 'react-bootstrap/esm/Dropdown';
+
+const SignInSignOutButton = () => {
+  const { instance } = useMsal();
+  return (
+    <>
+      <AuthenticatedTemplate>
+        <VscAccount onClick={() => instance.logout()}>
+
+        </VscAccount>
+      </AuthenticatedTemplate>
+      <UnauthenticatedTemplate>
+        <VscAccount onClick={() => instance.loginPopup(loginRequest)}>
+
+        </VscAccount>
+      </UnauthenticatedTemplate>
+    </>
+  );
+};
+
+export const PageLayout = (props: any) => {
+
+  const { instance } = useMsal();
+  return (
+    <>
+      {/* <SignInSignOutButton /> */}
+      <AuthenticatedTemplate>
+        <VscAccount onClick={() => instance.logout()}>
+
+        </VscAccount>
+      </AuthenticatedTemplate>
+      <UnauthenticatedTemplate>
+        <VscAccount onClick={() => instance.loginPopup(loginRequest)}>
+
+        </VscAccount>
+      </UnauthenticatedTemplate>
+      {props.children}
+    </>
+  );
+};
