@@ -44,6 +44,7 @@ const ProfileContent = () => {
           );
           localStorage.setItem('account', JSON.stringify(response));
         });
+      console.log('request');
     }
   }
 
@@ -54,23 +55,11 @@ const ProfileContent = () => {
       {graphData ? (
         <ProfileData graphData={graphData} />
       ) : (
-        <button variant="secondary" onClick={RequestProfileData}>
+        <button onClick={RequestProfileData}>
           Request Profile Information
         </button>
       )}
     </>
-  );
-};
-
-const MainContent = () => {
-  return (
-    <div>
-      <AuthenticatedTemplate>
-        <ProfileContent />
-      </AuthenticatedTemplate>
-
-      <UnauthenticatedTemplate></UnauthenticatedTemplate>
-    </div>
   );
 };
 
@@ -81,7 +70,12 @@ const UserButton = () => {
     <StyledSignIn>
       <MsalProvider instance={msalInstance}>
         <PageLayout>
-          <MainContent />
+          <div>
+            <AuthenticatedTemplate>
+              <ProfileContent />
+            </AuthenticatedTemplate>
+            <UnauthenticatedTemplate>Log In</UnauthenticatedTemplate>
+          </div>
         </PageLayout>
       </MsalProvider>
     </StyledSignIn>
