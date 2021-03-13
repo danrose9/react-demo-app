@@ -7,9 +7,9 @@ import {
   useAccount,
 } from '@azure/msal-react';
 import { PublicClientApplication } from '@azure/msal-browser';
-import { msalConfig, loginRequest } from '../../azure/authConfig';
+import { msalConfig, loginRequest, graphConfig } from '../../azure/authConfig';
 import { PageLayout } from '../../azure/ui';
-import { ProfileData, callMsGraph } from '../../azure/graph';
+import { ProfileData, fetchMsGraph } from '../../azure/graph';
 import styled from 'styled-components';
 
 const StyledSignIn = styled.div`
@@ -39,9 +39,10 @@ const ProfileContent = () => {
           account: account,
         })
         .then((response) => {
-          callMsGraph(response.accessToken).then((response) =>
-            setGraphData(response)
-          );
+          fetchMsGraph(
+            response.accessToken,
+            graphConfig.graphMeEndpoint
+          ).then((response) => setGraphData(response));
           localStorage.setItem('account', JSON.stringify(response));
         });
       console.log('request');
