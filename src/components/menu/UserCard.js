@@ -39,8 +39,6 @@ const LowerCard = styled.div`
   padding: 3px 0 0 0;
 `;
 
-import React from 'react';
-
 export const UserCard = () => {
   const username = localStorage.getItem('username');
   const displayName = localStorage.getItem('displayName');
