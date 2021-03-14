@@ -3,13 +3,11 @@ import {
   MsalProvider,
   AuthenticatedTemplate,
   UnauthenticatedTemplate,
-  useMsal,
-  useAccount,
 } from '@azure/msal-react';
 import { PublicClientApplication } from '@azure/msal-browser';
-import { msalConfig, loginRequest } from '../../azure/authConfig';
+import { msalConfig } from '../../azure/authConfig';
 import { PageLayout } from '../../azure/ui';
-import { ProfileData, callMsGraph } from '../../azure/graph';
+import ProfileContent from './ProfileContent';
 import styled from 'styled-components';
 
 const StyledSignIn = styled.div`
@@ -26,54 +24,6 @@ const StyledSignIn = styled.div`
   }
 `;
 
-const ProfileContent = () => {
-  const { instance, accounts } = useMsal();
-  const account = useAccount(accounts[0] || {});
-  const [graphData, setGraphData] = useState(null);
-
-  function RequestProfileData() {
-    if (account) {
-      instance
-        .acquireTokenSilent({
-          ...loginRequest,
-          account: account,
-        })
-        .then((response) => {
-          callMsGraph(response.accessToken).then((response) =>
-            setGraphData(response)
-          );
-          localStorage.setItem('account', JSON.stringify(response));
-        });
-    }
-  }
-
-  return (
-    <>
-      {account ? account.name : 'unknown'}
-      <div>{account.username}</div>
-      {graphData ? (
-        <ProfileData graphData={graphData} />
-      ) : (
-        <button variant="secondary" onClick={RequestProfileData}>
-          Request Profile Information
-        </button>
-      )}
-    </>
-  );
-};
-
-const MainContent = () => {
-  return (
-    <div>
-      <AuthenticatedTemplate>
-        <ProfileContent />
-      </AuthenticatedTemplate>
-
-      <UnauthenticatedTemplate></UnauthenticatedTemplate>
-    </div>
-  );
-};
-
 const UserButton = () => {
   const msalInstance = new PublicClientApplication(msalConfig);
 
@@ -81,7 +31,12 @@ const UserButton = () => {
     <StyledSignIn>
       <MsalProvider instance={msalInstance}>
         <PageLayout>
-          <MainContent />
+          <div>
+            <AuthenticatedTemplate>
+              <ProfileContent />
+            </AuthenticatedTemplate>
+            <UnauthenticatedTemplate>Log In</UnauthenticatedTemplate>
+          </div>
         </PageLayout>
       </MsalProvider>
     </StyledSignIn>
