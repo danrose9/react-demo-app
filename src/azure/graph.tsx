@@ -16,9 +16,8 @@ import React from 'react';
 //       .then((response) => {
 //         fetchMsGraph(
 //           response.accessToken,
-//           graphConfig.graphMeEndpoint
+//           graphEndpoint
 //         ).then((response) => setGraphData(response));
-//         localStorage.setItem('account', JSON.stringify(response));
 //       });
 //     console.log('request');
 //   }
