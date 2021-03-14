@@ -2,6 +2,10 @@ import React from 'react';
 
 // need to pull this in from UserButton and make it more generic
 
+// const { instance, accounts } = useMsal();
+// const account = useAccount(accounts[0] || {});
+// const [graphData, setGraphData] = useState(null);
+
 // function callMSGraph(graphEndpoint: string) {
 //   if (account) {
 //     instance
