@@ -10,6 +10,7 @@ import { loginRequest } from './authConfig';
 export const PageLayout = (props: any) => {
 
   const { instance } = useMsal();
+  
   return (
     <>
       <AuthenticatedTemplate>

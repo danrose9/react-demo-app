@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import {
   MsalProvider,
   AuthenticatedTemplate,
@@ -6,9 +6,8 @@ import {
 } from '@azure/msal-react';
 import { PublicClientApplication } from '@azure/msal-browser';
 import { msalConfig } from '../../azure/authConfig';
-import { PageLayout } from '../../azure/ui';
-import ProfileContent from './ProfileContent';
 import styled from 'styled-components';
+import { ProfileContent, ToggleLoginLogout } from './ProfileContent';
 
 const StyledSignIn = styled.div`
   padding: 10px;
@@ -30,14 +29,14 @@ const UserButton = () => {
   return (
     <StyledSignIn>
       <MsalProvider instance={msalInstance}>
-        <PageLayout>
+        <ToggleLoginLogout>
           <div>
             <AuthenticatedTemplate>
               <ProfileContent />
             </AuthenticatedTemplate>
             <UnauthenticatedTemplate>Log In</UnauthenticatedTemplate>
           </div>
-        </PageLayout>
+        </ToggleLoginLogout>
       </MsalProvider>
     </StyledSignIn>
   );

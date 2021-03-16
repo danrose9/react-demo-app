@@ -1,41 +1,38 @@
-import React, { useState } from 'react';
-import { useMsal, useAccount } from '@azure/msal-react';
-import { loginRequest, graphConfig } from '../../azure/authConfig';
-import { ProfileData, fetchMsGraph } from '../../azure/graph';
+import {
+  useMsal,
+  useAccount,
+  AuthenticatedTemplate,
+  UnauthenticatedTemplate,
+} from '@azure/msal-react';
+import { loginRequest } from '../../azure/authConfig';
+import { VscAccount } from 'react-icons/vsc';
 
 export const ProfileContent = () => {
-  const { instance, accounts } = useMsal();
+  const { accounts } = useMsal();
   const account = useAccount(accounts[0] || {});
-  const [graphData, setGraphData] = useState(null);
 
-  function RequestProfileData() {
-    if (account) {
-      instance
-        .acquireTokenSilent({
-          ...loginRequest,
-          account: account,
-        })
-        .then((response) => {
-          fetchMsGraph(
-            response.accessToken,
-            graphConfig.graphMeEndpoint
-          ).then((response) => setGraphData(response));
-          localStorage.setItem('account', JSON.stringify(response));
-        });
-      console.log('request');
-    }
-  }
   return (
     <>
       {account ? account.name : 'unknown'}
       <div>{account.username}</div>
-      {graphData ? (
-        <ProfileData graphData={graphData} />
-      ) : (
-        <button onClick={RequestProfileData}>
-          Request Profile Information
-        </button>
-      )}
+    </>
+  );
+};
+
+export const ToggleLoginLogout = (props) => {
+  const { instance } = useMsal();
+
+  return (
+    <>
+      <AuthenticatedTemplate>
+        <VscAccount onClick={() => instance.logout()}></VscAccount>
+      </AuthenticatedTemplate>
+      <UnauthenticatedTemplate>
+        <VscAccount
+          onClick={() => instance.loginPopup(loginRequest)}
+        ></VscAccount>
+      </UnauthenticatedTemplate>
+      {props.children}
     </>
   );
 };
